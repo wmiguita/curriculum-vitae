@@ -1,0 +1,34 @@
+{
+  "name": "curriculum-vitae",
+  "version": "0.0.1",
+  "description": "Simple HTML, JS page for personal CV display",
+  "main": "public/index.html",
+  "scripts": {
+    "start": "gulp",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/wmiguita/curriculum-vitae.git"
+  },
+  "keywords": [
+    "CV",
+    "curriculum",
+    "vitae"
+  ],
+  "author": "miguita@outlook.com",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/wmiguita/curriculum-vitae/issues"
+  },
+  "homepage": "https://github.com/wmiguita/curriculum-vitae#readme",
+  "devDependencies": {
+    "browser-sync": "^2.26.13",
+    "gulp": "^4.0.2",
+    "gulp-cli": "^2.3.0",
+    "gulp-sass": "^4.1.0"
+  },
+  "dependencies": {
+    "bootstrap": "^5.0.0-beta1"
+  }
+}
