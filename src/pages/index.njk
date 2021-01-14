@@ -1,5 +1,10 @@
 {% extends "layout.njk" %}
+{% import 'partials/_skill.njk' as skillPartial %}
 
 {% block content %}
-  <h1>This is the index page</h1>
+  {% for type, skills in skills | groupby( "type" ) %}
+    {% for skill in skills %}
+      {{ skillPartial.renderSkill( skill, type ) }}
+    {% endfor %}
+  {% endfor %}
 {% endblock %}

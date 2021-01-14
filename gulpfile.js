@@ -2,6 +2,8 @@ var gulp        = require( 'gulp');
 var browserSync = require( 'browser-sync' ).create();
 var sass        = require( 'gulp-sass' );
 var njk         = require( 'gulp-nunjucks-render' );
+var gdata       = require( 'gulp-data' );
+var fs          = require( 'fs' );
 
 // Compile sass into CSS & auto-inject into browsers
 gulp.task( 'sass', function() {
@@ -15,8 +17,11 @@ gulp.task( 'sass', function() {
 gulp.task( 'nunjucks', function() {
   // Gets .html and .nunjucks files in pages
   return gulp.src('src/pages/**/*.njk')
+  .pipe( gdata( function() {
+    return JSON.parse( fs.readFileSync( 'data.json' ) );
+  }))
   // Renders template with nunjucks
-  .pipe(njk({
+  .pipe( njk({
       path: ['src/templates']
     }))
   // output files in app folder
