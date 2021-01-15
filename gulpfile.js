@@ -18,7 +18,7 @@ gulp.task( 'nunjucks', function() {
   // Gets .html and .nunjucks files in pages
   return gulp.src('src/pages/**/*.njk')
   .pipe( gdata( function() {
-    return JSON.parse( fs.readFileSync( 'data.json' ) );
+    return JSON.parse( fs.readFileSync( 'src/data/data.json' ) );
   }))
   // Renders template with nunjucks
   .pipe( njk({
@@ -37,6 +37,7 @@ gulp.task( 'serve', gulp.series('sass', 'nunjucks', function() {
     });
 
     gulp.watch( "src/scss/*.scss", gulp.series( 'sass' ));
+    gulp.watch( "src/data/data.json", gulp.series( 'nunjucks' ));
     gulp.watch( "src/**/*.njk", gulp.series( 'nunjucks' ));
     gulp.watch( "src/*.html").on('change', browserSync.reload);
 }));
