@@ -2,9 +2,11 @@
 {% import 'partials/_skill.njk' as skillPartial %}
 
 {% block content %}
+<div class="row row-cols-1 row-cols-lg-3 g-3">
   {% for type, skills in skills | groupby( "type" ) %}
     {% for skill in skills %}
       {{ skillPartial.renderSkill( skill, type ) }}
     {% endfor %}
   {% endfor %}
+</div>
 {% endblock %}
