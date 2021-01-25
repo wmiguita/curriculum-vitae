@@ -37,7 +37,7 @@ gulp.task( 'serve', gulp.series('sass', 'nunjucks', function() {
     });
 
     gulp.watch( "src/scss/*.scss", gulp.series( 'sass' ));
-    gulp.watch( "src/data/data.json", gulp.series( 'nunjucks' ));
+    gulp.watch( "src/data/*.json", gulp.series( 'nunjucks' ));
     gulp.watch( "src/**/*.njk", gulp.series( 'nunjucks' ));
     gulp.watch( "src/*.html").on('change', browserSync.reload);
 }));
