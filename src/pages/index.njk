@@ -2,6 +2,9 @@
 {% import 'partials/_skill.njk' as skillPartial %}
 
 {% block content %}
+<h1 class="title">{{ name }} <small class="text-muted">( {{ born }} )</small></h1>
+<p class="text">{{ details }}</p>
+
 <div class="row row-cols-1 row-cols-lg-3 g-3">
   {% for type, skills in skills | groupby( "type" ) %}
     {% for skill in skills %}

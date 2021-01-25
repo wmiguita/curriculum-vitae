@@ -1,13 +1,21 @@
 {% macro renderSkill( skill, type ) %}
 {% if skill %}
 <div class="col">
-  <div class="card">
+  <div class="card {{ type }}">
     <small class="card-header">{{ type | title }}</small>
     <div class="card-body">
       {% if skill.title %}<h5 class="card-title">{{ skill.title }}</h5>{% endif %}
       {% if skill.details %}<small class="card-subtitle text-muted">{{ skill.details }}</small>{% endif %}
 
-      {% if skill.begin %}
+      {% if skill.complete %}
+      <div class="progress mt-3">
+        <div class="progress-bar progress-bar-striped"
+            role="progressbar"
+            style="width:{{ skill.complete }}%"
+            aria-valuenow="{{ skill.complete }}">
+        </div>
+      </div>
+      {% elif skill.begin %}
       {% set today          = 2021 %}
       {% set percentage     = ( ( skill.end ) - skill.begin ) / ( today - skill.begin ) * 100 %}
       <div class="progress mt-3">
