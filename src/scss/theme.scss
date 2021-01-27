@@ -1,3 +1,23 @@
 @import 'variables';
 
 @import 'bootstrap/scss/bootstrap';
+
+
+.card {
+  &.programação {
+    &, * { border-color: $color-programação }
+    .progress-bar { background-color: $color-programação }
+  }
+  &.idioma {
+    &, * { border-color: $color-idioma; }
+    .progress-bar { background-color: $color-idioma; }
+  }
+  &.trabalho {
+    &, * { border-color: $color-trabalho; }
+    .progress-bar { background-color: $color-trabalho; }
+  }
+  &.estudos {
+    &, * { border-color: $color-estudos; }
+    .progress-bar { background-color: $color-estudos; }
+  }
+}
