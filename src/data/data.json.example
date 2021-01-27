@@ -1,0 +1,9 @@
+{
+  "name": "Name In CV",
+  "born": "Date of birth",
+  "details": "Any details that you think deserves more text space",
+  "skills": [
+    { "title": "Skill 1", "type": "category", "details": "Any detail pertinet to skill 1 =)", "progress": { "begin": 2015, "end": 2021 }},
+    { "title": "Skill 2", "type": "category", "details": "Details to skill 2 ;)", "progress": { "label": "label not with date interval", "complete": 100 }}
+  ]
+}
