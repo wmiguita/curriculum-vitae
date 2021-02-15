@@ -5,6 +5,18 @@ var njk         = require( 'gulp-nunjucks-render' );
 var gdata       = require( 'gulp-data' );
 var fs          = require( 'fs' );
 
+/** Custom nunjucks environment
+ * reference: https://github.com/carlitoplatanito/gulp-nunjucks-render
+ */
+var nunjucksEnv = function( env ) {
+  env.addFilter( 'tags', function( text ) {
+    //TODO: improve regex to remove words with less than 3 characters
+    return text && text.split( /[\s,]/ )
+      .filter( function( s ) { return s } ) //removing empty entries
+      .join( ',' );
+  });
+};
+
 // Compile sass into CSS & auto-inject into browsers
 gulp.task( 'sass', function() {
     npmPath = [ './node_modules' ];
@@ -18,11 +30,13 @@ gulp.task( 'nunjucks', function() {
   // Gets .html and .nunjucks files in pages
   return gulp.src('src/pages/**/*.njk')
   .pipe( gdata( function() {
+    // improve to get all json files from data directory
     return JSON.parse( fs.readFileSync( 'src/data/data.json' ) );
   }))
   // Renders template with nunjucks
   .pipe( njk({
-      path: ['src/templates']
+      path: ['src/templates'],
+      manageEnv: nunjucksEnv
     }))
   // output files in app folder
   .pipe(gulp.dest('src'))
