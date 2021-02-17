@@ -21,3 +21,23 @@
     .progress-bar { background-color: $color-estudos; }
   }
 }
+
+.skill-list {
+  .skill {
+    transition: all .3s ease-out;
+  }
+
+  &.filtered {
+    .skill {
+      opacity: 0;
+
+      &.show {
+        opacity: 1;
+      }
+
+      &.hidden {
+        display: none;
+      }
+    }
+  }
+}

@@ -1,7 +1,7 @@
 {% macro renderSkill( skill, type ) %}
 {% if skill %}
   {% set today = 2021 %}
-<div class="col" data-tags="{{ skill.title.concat( " " +  skill.details) | tags }}">
+<div class="col skill" data-tags="{{ skill.title.concat( " " + skill.details + " " + type) | tags }}">
   <div class="card {{ type }}">
     <small class="card-header">{{ type | title }}</small>
     <div class="card-body">

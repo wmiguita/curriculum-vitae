@@ -12,17 +12,20 @@ var nunjucksEnv = function( env ) {
   env.addFilter( 'tags', function( text ) {
     //TODO: improve regex to remove words with less than 3 characters
     return text && text.split( /[\s,]/ )
-      .filter( function( s ) { return s } ) //removing empty entries
-      .join( ',' );
+      .filter( function( s ) {
+        if( s && s.length > 2 ) return s
+        false;
+      }) //removing empty entries
+      .join( ' ' );
   });
 };
 
 // Compile sass into CSS & auto-inject into browsers
 gulp.task( 'sass', function() {
     npmPath = [ './node_modules' ];
-    return gulp.src("src/scss/*.scss")
+    return gulp.src('src/scss/*.scss')
         .pipe(sass({ includePaths: npmPath }))
-        .pipe(gulp.dest("src/css"))
+        .pipe(gulp.dest('src/css'))
         .pipe(browserSync.stream());
 });
 
@@ -46,14 +49,15 @@ gulp.task( 'nunjucks', function() {
 gulp.task( 'serve', gulp.series('sass', 'nunjucks', function() {
 
     browserSync.init({
-        server: "./src/",
+        server: './src/',
         open: false
     });
 
-    gulp.watch( "src/scss/*.scss", gulp.series( 'sass' ));
-    gulp.watch( "src/data/*.json", gulp.series( 'nunjucks' ));
-    gulp.watch( "src/**/*.njk", gulp.series( 'nunjucks' ));
-    gulp.watch( "src/*.html").on('change', browserSync.reload);
+    gulp.watch( 'src/scss/*.scss', gulp.series( 'sass' ));
+    gulp.watch( 'src/data/*.json', gulp.series( 'nunjucks' ));
+    gulp.watch( 'src/**/*.njk', gulp.series( 'nunjucks' ));
+    gulp.watch( 'src/js/*.js', gulp.series( 'nunjucks' ));
+    gulp.watch( 'src/*.html').on('change', browserSync.reload);
 }));
 
 gulp.task('default', gulp.series('serve'));
