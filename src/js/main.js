@@ -15,8 +15,15 @@
       },
       filter = function filter( text ) {
         var filtered = fuseSearch.search( text ),
-            showItems = filtered.map( function( i ) { return i.item } );
+            showItems = filtered.map( function( i ) { return i.item } )
+            list = document.getElementById( 'habilities' );
 
+        if( ! text.trim() ) { // empty string clearl the filter
+          list.classList.remove( 'filtered' );
+          return;
+        }
+
+        document.getElementById( 'habilities' ).classList.add( 'filtered' );
         //cleaning previous filter
         skills.forEach( function( skill ) {
           if( showItems.includes( skill )) {

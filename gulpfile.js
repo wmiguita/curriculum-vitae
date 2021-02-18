@@ -22,17 +22,26 @@ var nunjucksEnv = function( env ) {
 
 // Compile sass into CSS & auto-inject into browsers
 gulp.task( 'sass', function() {
-    npmPath = [ './node_modules' ];
-    return gulp.src('src/scss/*.scss')
-        .pipe(sass({ includePaths: npmPath }))
-        .pipe(gulp.dest('src/css'))
-        .pipe(browserSync.stream());
+    var npmPath = [ './node_modules' ];
+    return gulp.src( 'src/scss/*.scss' )
+        .pipe( sass({ includePaths: npmPath }))
+        .pipe( gulp.dest( 'src/css' ))
+        .pipe( browserSync.stream() );
 });
+
+// unify js and dependencies
+gulp.task( 'js', function() {
+    var npmFuseJS = [ './node_modules/fuse.js/dist/fuse.basic.min.js' ];
+    return gulp.src( npmFuseJS.concat( 'src/js/main.js' ) )
+        .pipe( gulp.dest( 'src/js' ))
+        .pipe( browserSync.stream() );
+});
+
 
 gulp.task( 'nunjucks', function() {
   // Gets .html and .nunjucks files in pages
-  return gulp.src('src/pages/**/*.njk')
-  .pipe( gdata( function() {
+  return gulp.src( 'src/pages/**/*.njk' )
+    .pipe( gdata( function() {
     // improve to get all json files from data directory
     return JSON.parse( fs.readFileSync( 'src/data/data.json' ) );
   }))
@@ -46,7 +55,7 @@ gulp.task( 'nunjucks', function() {
 });
 
 // Static Server + watching scss/html files
-gulp.task( 'serve', gulp.series('sass', 'nunjucks', function() {
+gulp.task( 'serve', gulp.series('sass', 'js', 'nunjucks', function() {
 
     browserSync.init({
         server: './src/',
@@ -56,8 +65,8 @@ gulp.task( 'serve', gulp.series('sass', 'nunjucks', function() {
     gulp.watch( 'src/scss/*.scss', gulp.series( 'sass' ));
     gulp.watch( 'src/data/*.json', gulp.series( 'nunjucks' ));
     gulp.watch( 'src/**/*.njk', gulp.series( 'nunjucks' ));
-    gulp.watch( 'src/js/*.js', gulp.series( 'nunjucks' ));
-    gulp.watch( 'src/*.html').on('change', browserSync.reload);
+    gulp.watch( 'src/js/*.js' ).on( 'change', browserSync.reload );
+    gulp.watch( 'src/*.html').on( 'change', browserSync.reload );
 }));
 
 gulp.task('default', gulp.series('serve'));
