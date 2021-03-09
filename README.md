@@ -4,8 +4,8 @@ Simple static HTML generator with JS for personal CV display, works for any list
 ## Packages used
   * Bootstrap as design system
   * Nunjucks as template generator
-  * SCSS as css "language"/transpiler, I don't know the correct name
-  * Gulp to automate tasks like CSS transpiling, HTML generation
+  * SCSS for css pre-processor
+  * Gulp to automate tasks to CSS pre-process, generate HTML static files
 
 ## Usage
 
@@ -34,13 +34,13 @@ root directory
 npm start
 ```
 
-# ROADMAP ¯\_(ツ)_/¯
+# ROADMAP ¯\\_(ツ)_/¯
 
 * refactor serverd root directory away from src to something else
 * improve data import in gulp task
 * make a deploy task on gulp to deploy
 * bundle all JS and minify for production
-*
+* ...
 
 # References
 
