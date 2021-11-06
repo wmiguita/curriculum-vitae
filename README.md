@@ -36,8 +36,6 @@ npm start
 
 # ROADMAP ¯\\_(ツ)_/¯
 
-* refactor serverd root directory away from src to something else
-* make a deploy task on gulp to deploy
 * improve data import in gulp task
 * bundle all JS and minify for production
 * improve dependency js import (fuse)

@@ -1,9 +1,10 @@
-let gulp          = require( 'gulp' );
+let fs            = require( 'fs' );
+let del           = require( 'del' );
 let browserSync   = require( 'browser-sync' ).create();
+let gulp          = require( 'gulp' );
 let sass          = require( 'gulp-sass' )(require( 'sass' ));
 let njk           = require( 'gulp-nunjucks-render' );
 let gdata         = require( 'gulp-data' );
-let fs            = require( 'fs' );
 let uglify        = require( 'gulp-uglify' );
 let csso          = require( 'gulp-csso' );
 let htmlmin       = require( 'gulp-htmlmin' );
@@ -96,5 +97,12 @@ gulp.task( 'serve', gulp.series('sass', 'js', 'nunjucks', function() {
     gulp.watch( 'public/*.html').on( 'change', browserSync.reload );
 }));
 
+// Clean public directory
+gulp.task( 'clean', function( cb ) {
+  return del([ 'public' ], cb );
+})
+
+// create clean deploy files to public directory
+gulp.task( 'deploy', gulp.series( 'clean', 'sass', 'js', 'nunjucks' ));
 gulp.task( 'default', gulp.series( 'serve' ));
 
