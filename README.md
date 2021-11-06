@@ -37,13 +37,15 @@ npm start
 # ROADMAP ¯\\_(ツ)_/¯
 
 * refactor serverd root directory away from src to something else
-* improve data import in gulp task
 * make a deploy task on gulp to deploy
+* improve data import in gulp task
 * bundle all JS and minify for production
+* improve dependency js import (fuse)
 * ...
 
 # References
 
   * [Tutorial for nunjucks introductions] (https://zellwk.com/blog/nunjucks-with-gulp/ "Consulted tutorial")
-  * [Bootstrap 5 beta] (https://getbootstrap.com/docs/5.0/getting-started/introduction/ "Bootstrap docs")
+  * [Bootstrap 5.1.3] (https://getbootstrap.com/docs/5.0/getting-started/introduction/ "Bootstrap docs")
   * [Nunjucks Docs] (https://mozilla.github.io/nunjucks/api.html "Nunjucks API Docs")
+  * [Gulp minify JS/CSS/HTML] (https://medium.com/devux/minifying-your-css-js-html-files-using-gulp-2113d7fcbd16 "Medium DEVUX")

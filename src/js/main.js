@@ -1,5 +1,5 @@
 (function( ready ) {
-  var filterInput = document.getElementById( "skill-filter" ),
+  let filterInput = document.getElementById( "skill-filter" ),
       clearFilterBtn = document.getElementById( "clear-filter" ),
       filterTimer = null,
       skills = [].slice.call( document.getElementsByClassName( "skill" ) ),// to array
@@ -14,7 +14,7 @@
         }
       },
       filter = function filter( text ) {
-        var filtered = fuseSearch.search( text ),
+        let filtered = fuseSearch.search( text ),
             showItems = filtered.map( function( i ) { return i.item } )
             list = document.getElementById( 'habilities' );
 
