@@ -14,8 +14,8 @@ jobs:
 
       - name: Build
         run: |
+          git merge origin/gh-pages -m "Merge branch 'gh-pages'"
           npm ci
-          git merge gh-pages -m "Merge branch 'gh-pages'"
           npm run deploy
           touch ./public/.nojekyll
 
