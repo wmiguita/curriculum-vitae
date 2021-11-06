@@ -15,6 +15,7 @@ jobs:
       - name: Build
         run: |
           npm ci
+          git merge gh-pages
           npm run deploy
           touch ./public/.nojekyll
 
