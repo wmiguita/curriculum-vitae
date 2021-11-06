@@ -36,7 +36,8 @@ npm start
 
 # ROADMAP ¯\\_(ツ)_/¯
 
-* improve data import in gulp task
+* refactor tasks for gulp alternative
+* improve data import for data tasks
 * bundle all JS and minify for production
 * improve dependency js import (fuse)
 * ...
