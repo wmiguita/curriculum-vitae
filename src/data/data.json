@@ -1,0 +1,31 @@
+{
+  "name": "Wylliam Miguita",
+  "born": "1982",
+  "details": "Programador fullstack, focado mais em escrever código e estruturação de dados",
+  "skills": [
+    { "title": "Javascript", "type": "programação", "details": "JS, ES6, NPM, React, Angular", "progress": { "begin": 2015, "end": 2021 }},
+    { "title": "CSS + HTML", "type": "programação", "details": "HTML5, CSS 3, flexbox", "progress": { "begin": 2010, "end": 2019 }},
+    { "title": "Sys Admin", "type": "programação", "details": "Debian based SO", "progress": { "begin": 2004, "end": 2020 }},
+    { "title": "SQL", "type": "programação", "details": "MS SQL, Oracle, MySQL", "progress": { "begin": 2004, "end": 2020 }},
+    { "title": "Java", "type": "programação", "details": "1.6 and 1.8 intermediário", "progress": { "begin": 2016, "end": 2020 }},
+    { "title": "PHP", "type": "programação", "details": "versão 5 e 6 para temas de wordpress", "progress": { "begin": 2010, "end": 2016 }},
+    { "title": "Ruby", "type": "programação", "details": "Ruby on Rails 1, 2", "progress": { "begin": 2006, "end": 2009 }},
+    { "title": "C#", "type": "programação", "details": "Visual Studio 2005", "progress": { "begin": 2005, "end": 2006 }},
+
+    { "title": "Inglês", "type": "idioma", "details": "Avançado: 9 anos de estudos e uso diário", "progress": { "begin": 1994, "end": 2021 }},
+    { "title": "Japonês", "type": "idioma", "details": "Básico: 1 semestre", "progress": { "begin": 2002, "end": 2003 }},
+    { "title": "Espanhol", "type": "idioma", "details": "Básico: 1 mês para intercâmbio, ", "progress": { "begin": 1999, "end": 2000 }},
+
+    { "title": "Cittamobi LTDA", "type": "trabalho", "details": "Programador senior por 8 meses", "progress": { "begin": 2020, "end": 2021 }},
+    { "title": "Try consultoria", "type": "trabalho", "details": "Programador pleno por 3 meses", "progress": { "begin": 2019, "end": 2020 }},
+    { "title": "Partisan Informática", "type": "trabalho", "details": "Programador pleno", "progress": { "begin": 2009, "end": 2018 }},
+    { "title": "Ikwa Orientação Profissional", "type": "trabalho", "details": "Programador pleno", "progress": { "begin": 2007, "end": 2009 }},
+    { "title": "PRA, Financial Products Ltda", "type": "trabalho", "details": "Programador Jr", "progress": { "begin": 2005, "end": 2006 }},
+    { "title": "Rede Pró-Aluno IME - USP", "type": "trabalho", "details": "Admin da rede e manutenção de hardware", "progress": { "begin": 2003, "end": 2004 }},
+    { "title": "Seção de Informática IME - USP", "type": "trabalho", "details": "Assistência técnica da rede IME - USP por 5 meses", "progress": { "begin": 2002, "end": 2002 }},
+
+    { "title": "Universidade de São Paulo", "type": "estudos", "details": "Formado em Bacharelado em Ciência da Computação", "progress": { "label": "2002 - 2007", "complete": 100 }},
+    { "title": "Colégio Agostiniano São José", "type": "estudos", "details": "Ensino médio completo", "progress": { "label": "1993-1999", "complete": 100 }},
+    { "title": "Colégio Agostiniano Mendel", "type": "estudos", "details": "Ensino fundamental completo", "progress": { "label": "1987-1992", "complete": 100 }}
+  ]
+}
